@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: url('girlfriend.jpg') no-repeat center center fixed;
+    background-size: contain; /* Ensures the entire image is visible */
+    background-color: #000; /* Adds a background color to fill any extra space */
+}
+
+#game-container {
+    text-align: center;
+    color: white; /* Text color to stand out against the background */
+    text-shadow: 2px 2px 4px #000; /* Shadow for better readability */
+    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background to make text more readable */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 20px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.hole {
+    width: 100px;
+    height: 100px;
+    background-color: transparent; /* Make holes transparent */
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.mole {
+    width: 80px;
+    height: 80px;
+    background: url('my_face.png') no-repeat center center/cover; /* Your face image */
+    border-radius: 50%;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 0.3s;
+}
+
+.mole.up {
+    top: 10%;
+}
+
+#start-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#score-board {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
