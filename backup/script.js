@@ -7,22 +7,13 @@ let timeUp = false;
 let lastHole;
 
 const backgrounds = [
-    'girlfriend.jpg',    // Background for level 1
-    'girlfriend-level2.jpg', // Background for level 2
-    'girlfriend-level3.jpg', // Background for level 3
-    'girlfriend-level4.jpg', // Background for level 4
-    'girlfriend-level5.jpg', // Background for level 5
-    'girlfriend-level6.jpg'  // Background for level 6
+    'girlfriend.jpg',   
+    'girlfriend-level2.jpg'
 ];
 
 const moleImages = [
-    'your-face.jpg',      // Mole image for level 1
-    'your-face-level2.jpg', // Mole image for level 2
-    'your-face-level3.jpg', // Mole image for level 3
-    'your-face-level4.jpg', // Mole image for level 4
-    'your-face-level5.jpg', // Mole image for level 5
-    'your-face-level6.jpg', // Mole image for level 5
-    
+    'your-face.jpg',      
+    'your-face-level2.jpg'
 ];
 
 function randomTime(min, max) {
@@ -52,30 +43,28 @@ function peep() {
 
 function startGame() {
     score = 0;
-    level = 1; // Start from level 1
     scoreBoard.textContent = score;
     timeUp = false;
-    updateLevel(); // Initialize with level 1
+    level = 1;
+    updateLevel();
     peep();
 }
 
 function updateLevel() {
-    if (level <= backgrounds.length) {
-        document.body.style.backgroundImage = `url(${backgrounds[level - 1]})`;
-        const moles = document.querySelectorAll('.mole');
-        moles.forEach(mole => mole.style.backgroundImage = `url(${moleImages[level - 1]})`);
-    }
+    document.body.style.backgroundImage = `url(${backgrounds[level - 1]})`;
+    const moles = document.querySelectorAll('.mole');
+    moles.forEach(mole => mole.style.backgroundImage = `url(${moleImages[level - 1]})`);
 }
 
 function nextLevel() {
     level++;
     if (level > backgrounds.length) {
-        alert('Game Over! You have completed all levels.');
+        alert('არა ბიჭოს ახლა არ დამიჭერდი');
         return;
     }
     score = 0;
     scoreBoard.textContent = score;
-    updateLevel(); // Change background and mole image for new level
+    updateLevel();
     peep();
 }
 
@@ -85,10 +74,10 @@ function whack(e) {
     this.classList.remove('up');
     scoreBoard.textContent = score;
     if (score >= 5) {
-        timeUp = true; // Stop the current level
+        timeUp = true; // Stop current level
         setTimeout(() => {
             nextLevel();
-            timeUp = false; // Resume game in the next level
+            timeUp = false; // Resume game in next level
         }, 1000); // Move to next level after a short pause
     }
 }
